@@ -309,7 +309,7 @@ apps = [
         "titulo": "Reconocimiento óptico de caracteres 2",
         "desc": "Reconoce tus fotos desde tu cámara",
         "url": "https://ocrsav.streamlit.app",  # 👈 CAMBIA por URL correcta
-        "badge": "iot",
+        "badge": "vision",
         "emoji": "⚙️"
     },
 
@@ -333,7 +333,7 @@ apps = [
         "titulo": "Reconocimiento de imágenes",
         "desc": "Reconoce si samu está o no en tus fotos",
         "url": "https://tm95nvds.streamlit.app",  # 👈 CAMBIA por URL correcta
-        "badge": "iot",
+        "badge": "vision",
         "emoji": "⚙️"
     },
 
@@ -341,7 +341,7 @@ apps = [
         "titulo": "Traductor",
         "desc": "Escucho lo que quieres traducir.",
         "url": "https://visionappsav.streamlit.app",  # 👈 CAMBIA por URL correcta
-        "badge": "iot",
+        "badge": "Audio",
         "emoji": "⚙️"
     },
 
@@ -357,7 +357,7 @@ apps = [
         "titulo": "Analisis de imagen",
         "desc": "Clave KPI",
         "url": "https://traductordim.streamlit.app",  # 👈 CAMBIA por URL correcta
-        "badge": "iot",
+        "badge": "vision",
         "emoji": "⚙️"
     },
 
@@ -365,7 +365,7 @@ apps = [
         "titulo": "Detección de objetos",
         "desc": "Detecta objetos en tus imágenes",
         "url": "https://yolov5aa.streamlit.app",  # 👈 CAMBIA por URL correcta
-        "badge": "iot",
+        "badge": "vision",
         "emoji": "⚙️"
     },
 ]
