@@ -1,87 +1,367 @@
 import streamlit as st
-from PIL import Image
-st.title("Aplicaciones de Inteligencia Artificial.")
-
+ 
+# ============================================================
+# CONFIGURACIÓN DE PÁGINA
+# ============================================================
+st.set_page_config(
+    page_title="Portafolio IA",       # 👈 CAMBIA: Nombre de tu portafolio
+    page_icon="🤖",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
+ 
+# ============================================================
+# CSS PERSONALIZADO — aquí vive toda la magia visual
+# ============================================================
+st.markdown("""
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap');
+ 
+/* Fondo oscuro general */
+.stApp {
+    background: #0a0a0f;
+    color: #e8e4f0;
+}
+ 
+/* Sidebar */
+[data-testid="stSidebar"] {
+    background: #0f0d1a !important;
+    border-right: 1px solid #1e1a30;
+}
+[data-testid="stSidebar"] * {
+    color: #c8c0e8 !important;
+}
+ 
+/* Títulos principales */
+h1 {
+    font-family: 'Syne', sans-serif !important;
+    font-size: 2.4rem !important;
+    font-weight: 800 !important;
+    background: linear-gradient(135deg, #a89cf7, #6c5ce7, #8e7cf8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -1px;
+}
+ 
+h2, h3 {
+    font-family: 'Syne', sans-serif !important;
+    color: #d4cef5 !important;
+}
+ 
+/* Tarjetas de aplicación */
+.app-card {
+    background: #12101e;
+    border: 1px solid #2a2440;
+    border-radius: 16px;
+    padding: 1.4rem;
+    margin-bottom: 1.2rem;
+    transition: border-color 0.3s ease, transform 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+.app-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #534AB7, #8e7cf8, #534AB7);
+}
+.app-card:hover {
+    border-color: #534AB7;
+    transform: translateY(-3px);
+}
+.card-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #d4cef5;
+    margin-bottom: 0.5rem;
+}
+.card-desc {
+    font-size: 0.82rem;
+    color: #8a84a8;
+    font-weight: 300;
+    line-height: 1.6;
+    margin-bottom: 0.8rem;
+}
+.card-link {
+    display: inline-block;
+    padding: 6px 16px;
+    background: #1e1a35;
+    border: 1px solid #534AB7;
+    border-radius: 20px;
+    color: #a89cf7 !important;
+    font-size: 0.78rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+.card-link:hover {
+    background: #534AB7;
+    color: #fff !important;
+}
+ 
+/* Badge de categoría */
+.badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 0.72rem;
+    font-weight: 500;
+    margin-bottom: 0.6rem;
+}
+.badge-nlp   { background: #1a1035; color: #a89cf7; border: 1px solid #3d3470; }
+.badge-vision{ background: #0f1e1a; color: #5dcaa5; border: 1px solid #1d6e56; }
+.badge-audio { background: #1a1020; color: #d4c0f5; border: 1px solid #6a4f9a; }
+.badge-data  { background: #1a150f; color: #ef9f27; border: 1px solid #854f0b; }
+.badge-iot   { background: #1a0f12; color: #f09595; border: 1px solid #993556; }
+ 
+/* Hero banner */
+.hero-banner {
+    background: linear-gradient(135deg, #0f0d1a 0%, #1a1035 100%);
+    border: 1px solid #2a2440;
+    border-radius: 20px;
+    padding: 2rem 2.5rem;
+    margin-bottom: 2.5rem;
+    position: relative;
+    overflow: hidden;
+}
+.hero-banner::after {
+    content: '🤖';
+    position: absolute;
+    right: 2rem; top: 50%;
+    transform: translateY(-50%);
+    font-size: 5rem;
+    opacity: 0.12;
+}
+.hero-name {
+    font-family: 'Syne', sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    color: #f0eeff;
+}
+.hero-role {
+    font-size: 0.95rem;
+    color: #7c76a0;
+    margin-top: 0.3rem;
+    font-weight: 300;
+}
+.hero-desc {
+    font-size: 0.88rem;
+    color: #a09ab8;
+    margin-top: 0.8rem;
+    max-width: 600px;
+    line-height: 1.7;
+}
+.hero-links {
+    display: flex;
+    gap: 10px;
+    margin-top: 1.2rem;
+    flex-wrap: wrap;
+}
+.hero-link {
+    padding: 7px 18px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-decoration: none;
+    border: 1px solid #3a3060;
+    color: #b8b0d8;
+    background: #1a1635;
+    transition: all 0.2s;
+}
+.hero-link:hover {
+    border-color: #534AB7;
+    color: #d4cef5;
+}
+ 
+/* Sección título */
+.section-label {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: #534AB7;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+}
+.section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #d4cef5;
+    margin-bottom: 1.5rem;
+}
+ 
+/* Separador */
+.divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #2a2440, transparent);
+    margin: 2rem 0;
+}
+</style>
+""", unsafe_allow_html=True)
+ 
+ 
+# ============================================================
+# SIDEBAR
+# ============================================================
 with st.sidebar:
-  st.subheader("Aplicaciones con Inteligencia Artificial.")
-  parrafo = (
-    "La inteligencia artificial permite mejorar la toma de decisiones con el uso de datos, "
-    "automatizar tareas rutinarias y proporcionar análisis avanzados en tiempo real, lo que "
-    "resulta en una mayor eficiencia y precisión en diversos campos."
-  )
-  st.write(parrafo)
-
-url_ia="https://sites.google.com/view/aplicacionesdeia/inicio"
-st.subheader("En el siguiente enlace puedes encontrar páginas y ejercicios prácticos")
-st.write(f"Enlace para páginas y ejercicios: [Enlace]({url_ia})")
-col1, col2, col3 = st.columns(3)
-
-with col1:
+    st.markdown("## 🤖 Sobre este portafolio")
+    st.markdown("""
+    <div style='font-size:0.85rem; color:#9a94b8; line-height:1.7; margin-top:0.5rem;'>
+    La inteligencia artificial permite mejorar la toma de decisiones con el uso de datos,
+    automatizar tareas rutinarias y proporcionar análisis avanzados en tiempo real.
+    </div>
+    """, unsafe_allow_html=True)
  
- st.subheader("Conversión de texto a voz")
- image = Image.open('txt_to_audio2.png')
- st.image(image, width=190)
- st.write("En la siguiente enlace usaremos una de las aplicaciones de Inteligencia Artificial") 
- url = "https://imultimod.streamlit.app/"
- st.write(f"Texto a voz: [Enlace]({url})")
-
- st.subheader("Reconocimiento de Objetos")
- image = Image.open('txt_to_audio.png')
- st.image(image, width=200)
- st.write("En la siguiente enlace veremos como se detectan objetos en Imágenes.") 
- url = "https://yolov5cmc.streamlit.app/"
- st.write(f"YOLO: [Enlace]({url})")
-
- st.subheader("Entrenando Modelos")
- image = Image.open('OIG5.jpg')
- st.image(image, width=200)
- st.write("En la siguiente enlace veremos como puedes usar tu modelo entrenado.") 
- url = "https://xn3pg24ztuv6fdiqon8qn3.streamlit.app/"
- st.write(f"YOLO: [Enlace]({url})")
-
-with col2: 
- st.subheader("Conversión de voz a texto")
- image = Image.open('OIG8.jpg')
- st.image(image, width=200)
- st.write("En la siguiente veremos una aplicación que usa la conversión de voz a texto.") 
- url = "https://traductorw.streamlit.app/"
- st.write(f"Voz a texto: [Enlace]({url})")
-
- st.subheader("Análisis de Datos")
- image = Image.open('data_analisis.png')
- st.image(image, width=190)
- st.write("En la siguiente enlace veremos como se pueden analizar datos usando agentes.") 
- url = "https://dataagente.streamlit.app/"
- st.write(f"Datos: [Enlace]({url})")
-
- st.subheader("Trasnscriptor Audio y Video")
- image = Image.open('OIG3.jpg')
- st.image(image, width=200)
- st.write("En la siguiente enlace veremos como realizamos transcripciones de audio/video.") 
- url = "https://transcript-whisper.streamlit.app/"
- st.write(f"Transcriptor: [Enlace]({url})")
-
-
-with col3: 
- st.subheader("Generación en Contexto")
- image = Image.open('Chat_pdf.png')
- st.image(image, width=190)
- st.write("En la siguiente veremos una aplicación que usa RAG a partir de un documento (PDF).") 
- url = "https://chatpdf-cc.streamlit.app/"
- st.write(f"RAG: [Enlace]({url})")
-
- st.subheader("Análisis de Imagen")
- image = Image.open('OIG4.jpg')
- st.image(image, width=200)
- st.write("En la siguiente enlace veremos la capacidad de análisis en Imágenes.") 
- url = "https://vision2-gpt4o.streamlit.app/"
- st.write(f"Vision: [Enlace]({url})")
+    st.markdown("<div class='divider'></div>", unsafe_allow_html=True)
+    st.markdown("### 🔗 Recursos")
  
- st.subheader("Sistema Ciberfísico")
- image = Image.open('OIG6.jpg')
- st.image(image, width=200)
- st.write("En la siguiente enlace veremos la capacidad de interacción con el mundo físico.") 
- url = "https://vision2-gpt4o.streamlit.app/"
- st.write(f"Vision: [Enlace]({url})")
-
+    # 👈 CAMBIA: tu enlace de recursos generales
+    url_recursos = "https://sites.google.com/view/aplicacionesdeia/inicio"
+    st.markdown(f"[📚 Páginas y ejercicios prácticos]({url_recursos})")
+ 
+    st.markdown("<div class='divider'></div>", unsafe_allow_html=True)
+    st.markdown("### 👤 Contacto")
+ 
+    # 👈 CAMBIA: tus links de contacto/redes
+    st.markdown("[🐙 GitHub](https://github.com/TU_USUARIO)")
+    st.markdown("[💼 LinkedIn](https://linkedin.com/in/TU_USUARIO)")
+    st.markdown("[✉️ Email](mailto:TU_CORREO@gmail.com)")
+ 
+ 
+# ============================================================
+# HERO BANNER
+# ============================================================
+st.markdown("""
+<div class='hero-banner'>
+    <div class='hero-name'>Tu Nombre Aquí</div>  <!-- 👈 CAMBIA: tu nombre -->
+    <div class='hero-role'>Ingeniero en IA & Machine Learning · Universidad XYZ</div>  <!-- 👈 CAMBIA: tu rol y universidad -->
+    <div class='hero-desc'>
+        Colección de aplicaciones prácticas de Inteligencia Artificial: desde visión por computador
+        hasta procesamiento de lenguaje natural, construidas con Python y modelos de última generación.
+    </div>
+    <div class='hero-links'>
+        <a class='hero-link' href='https://github.com/TU_USUARIO' target='_blank'>🐙 GitHub</a>
+        <a class='hero-link' href='https://linkedin.com/in/TU_USUARIO' target='_blank'>💼 LinkedIn</a>
+        <a class='hero-link' href='https://sites.google.com/view/aplicacionesdeia/inicio' target='_blank'>🌐 Sitio web</a>
+        <!-- 👆 CAMBIA: tus links reales arriba -->
+    </div>
+</div>
+""", unsafe_allow_html=True)
+ 
+ 
+# ============================================================
+# DATOS DE LAS APPS — EDITA AQUÍ TUS PROYECTOS
+# ============================================================
+# Estructura: (título, descripción, url, badge_tipo, emoji)
+# badge_tipo puede ser: nlp, vision, audio, data, iot
+ 
+apps = [
+    {
+        "titulo": "Conversión de Texto a Voz",
+        "desc": "Transforma cualquier texto en audio natural usando modelos de síntesis de voz de última generación.",
+        "url": "https://imultimod.streamlit.app/",     # 👈 CAMBIA por tu URL real
+        "badge": "audio",
+        "emoji": "🔊"
+    },
+    {
+        "titulo": "Reconocimiento de Objetos",
+        "desc": "Detección de objetos en tiempo real en imágenes usando YOLOv5, uno de los modelos más rápidos del mundo.",
+        "url": "https://yolov5cmc.streamlit.app/",    # 👈 CAMBIA por tu URL real
+        "badge": "vision",
+        "emoji": "👁️"
+    },
+    {
+        "titulo": "Entrenando tus Modelos",
+        "desc": "Sube tu propio dataset, entrena un modelo personalizado y despliégalo al instante.",
+        "url": "https://xn3pg24ztuv6fdiqon8qn3.streamlit.app/",  # 👈 CAMBIA
+        "badge": "vision",
+        "emoji": "🧠"
+    },
+    {
+        "titulo": "Voz a Texto (Transcriptor)",
+        "desc": "Convierte grabaciones de audio o video en texto preciso usando Whisper de OpenAI.",
+        "url": "https://traductorw.streamlit.app/",   # 👈 CAMBIA
+        "badge": "audio",
+        "emoji": "🎙️"
+    },
+    {
+        "titulo": "Análisis de Datos con Agentes",
+        "desc": "Consulta y analiza tus datos en lenguaje natural usando agentes de IA con capacidad de razonamiento.",
+        "url": "https://dataagente.streamlit.app/",   # 👈 CAMBIA
+        "badge": "data",
+        "emoji": "📊"
+    },
+    {
+        "titulo": "Transcriptor Audio & Video",
+        "desc": "Sube un archivo multimedia y obtén la transcripción completa en segundos, listo para exportar.",
+        "url": "https://transcript-whisper.streamlit.app/",  # 👈 CAMBIA
+        "badge": "audio",
+        "emoji": "🎬"
+    },
+    {
+        "titulo": "RAG — Chat con tus PDFs",
+        "desc": "Carga cualquier documento PDF y hazle preguntas en lenguaje natural. Generación aumentada por recuperación.",
+        "url": "https://chatpdf-cc.streamlit.app/",   # 👈 CAMBIA
+        "badge": "nlp",
+        "emoji": "📄"
+    },
+    {
+        "titulo": "Análisis de Imágenes con GPT-4o",
+        "desc": "Describe, analiza y extrae información de cualquier imagen usando la visión multimodal de GPT-4o.",
+        "url": "https://vision2-gpt4o.streamlit.app/",  # 👈 CAMBIA
+        "badge": "vision",
+        "emoji": "🖼️"
+    },
+    {
+        "titulo": "Sistema Ciberfísico",
+        "desc": "Integración de IA con el mundo físico: sensores, actuadores y control inteligente en tiempo real.",
+        "url": "https://vision2-gpt4o.streamlit.app/",  # 👈 CAMBIA por URL correcta
+        "badge": "iot",
+        "emoji": "⚙️"
+    },
+]
+ 
+badge_labels = {
+    "nlp":    ("badge-nlp",    "NLP"),
+    "vision": ("badge-vision", "Visión"),
+    "audio":  ("badge-audio",  "Audio"),
+    "data":   ("badge-data",   "Datos"),
+    "iot":    ("badge-iot",    "IoT"),
+}
+ 
+ 
+# ============================================================
+# GRILLA DE TARJETAS — 3 columnas
+# ============================================================
+st.markdown("<div class='section-label'>Proyectos</div>", unsafe_allow_html=True)
+st.markdown("<div class='section-title'>Aplicaciones de IA</div>", unsafe_allow_html=True)
+ 
+cols = st.columns(3)
+ 
+for i, app in enumerate(apps):
+    badge_class, badge_text = badge_labels[app["badge"]]
+    with cols[i % 3]:
+        st.markdown(f"""
+        <div class='app-card'>
+            <div class='badge {badge_class}'>{badge_text}</div>
+            <div class='card-title'>{app['emoji']} {app['titulo']}</div>
+            <div class='card-desc'>{app['desc']}</div>
+            <a class='card-link' href='{app['url']}' target='_blank'>Abrir app →</a>
+        </div>
+        """, unsafe_allow_html=True)
+ 
+ 
+# ============================================================
+# FOOTER
+# ============================================================
+st.markdown("<div class='divider'></div>", unsafe_allow_html=True)
+st.markdown("""
+<div style='text-align:center; font-size:0.78rem; color:#4a4468; padding: 1rem 0;'>
+    Hecho con 🤖 + Python · Streamlit · 2025 &nbsp;·&nbsp;
+    <!-- 👈 CAMBIA: pon tu nombre abajo -->
+    <span style='color:#534AB7;'>Tu Nombre</span>
+</div>
+""", unsafe_allow_html=True)
 
