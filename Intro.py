@@ -4,7 +4,7 @@ import streamlit as st
 # CONFIGURACIÓN DE PÁGINA
 # ============================================================
 st.set_page_config(
-    page_title="Portafolio IA",       # 👈 CAMBIA: Nombre de tu portafolio
+    page_title="Portafolio SAV",       # 👈 CAMBIA: Nombre de tu portafolio
     page_icon="🤖",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -218,16 +218,11 @@ with st.sidebar:
     st.markdown("### 🔗 Recursos")
  
     # 👈 CAMBIA: tu enlace de recursos generales
-    url_recursos = "https://sites.google.com/view/aplicacionesdeia/inicio"
-    st.markdown(f"[📚 Páginas y ejercicios prácticos]({url_recursos})")
+  
  
-    st.markdown("<div class='divider'></div>", unsafe_allow_html=True)
-    st.markdown("### 👤 Contacto")
  
-    # 👈 CAMBIA: tus links de contacto/redes
-    st.markdown("[🐙 GitHub](https://github.com/TU_USUARIO)")
-    st.markdown("[💼 LinkedIn](https://linkedin.com/in/TU_USUARIO)")
-    st.markdown("[✉️ Email](mailto:TU_CORREO@gmail.com)")
+
+
  
  
 # ============================================================
@@ -235,16 +230,13 @@ with st.sidebar:
 # ============================================================
 st.markdown("""
 <div class='hero-banner'>
-    <div class='hero-name'>Tu Nombre Aquí</div>  <!-- 👈 CAMBIA: tu nombre -->
-    <div class='hero-role'>Ingeniero en IA & Machine Learning · Universidad XYZ</div>  <!-- 👈 CAMBIA: tu rol y universidad -->
+    <div class='hero-name'>Samuel Acevedo V. Aquí</div>  <!-- 👈 CAMBIA: tu nombre -->
+    <div class='hero-role'>Estudiante de diseño intercativo · Universidad EAFIT</div>  <!-- 👈 CAMBIA: tu rol y universidad -->
     <div class='hero-desc'>
-        Colección de aplicaciones prácticas de Inteligencia Artificial: desde visión por computador
-        hasta procesamiento de lenguaje natural, construidas con Python y modelos de última generación.
+        PORTAFOLIO
     </div>
     <div class='hero-links'>
-        <a class='hero-link' href='https://github.com/TU_USUARIO' target='_blank'>🐙 GitHub</a>
-        <a class='hero-link' href='https://linkedin.com/in/TU_USUARIO' target='_blank'>💼 LinkedIn</a>
-        <a class='hero-link' href='https://sites.google.com/view/aplicacionesdeia/inicio' target='_blank'>🌐 Sitio web</a>
+        <a class='hero-link' href='https://www.linkedin.com/in/samuel-acevedo-velásquez-a5a410335/' target='_blank'>💼 LinkedIn</a>
         <!-- 👆 CAMBIA: tus links reales arriba -->
     </div>
 </div>
