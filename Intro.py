@@ -290,7 +290,7 @@ apps = [
         "url": "https://introsamu.streamlit.app",  # 👈 CAMBIA
         "badge": "audio",
         "emoji": "🎬"
-    }
+    },
     {
         "titulo": "APP de presentación",
         "desc": "Mi pagina de presentación",
