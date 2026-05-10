@@ -209,8 +209,7 @@ with st.sidebar:
     st.markdown("## 🤖 Sobre este portafolio")
     st.markdown("""
     <div style='font-size:0.85rem; color:#9a94b8; line-height:1.7; margin-top:0.5rem;'>
-    La inteligencia artificial permite mejorar la toma de decisiones con el uso de datos,
-    automatizar tareas rutinarias y proporcionar análisis avanzados en tiempo real.
+    Portafolio de clase.
     </div>
     """, unsafe_allow_html=True)
  
@@ -253,63 +252,63 @@ apps = [
     {
         "titulo": "Conversión de Texto a Voz",
         "desc": "Transforma cualquier texto en audio natural usando modelos de síntesis de voz de última generación.",
-        "url": "https://imultimod.streamlit.app/",     # 👈 CAMBIA por tu URL real
+        "url": "https://multisav.streamlit.app",     # 👈 CAMBIA por tu URL real
         "badge": "audio",
         "emoji": "🔊"
     },
     {
-        "titulo": "Reconocimiento de Objetos",
-        "desc": "Detección de objetos en tiempo real en imágenes usando YOLOv5, uno de los modelos más rápidos del mundo.",
-        "url": "https://yolov5cmc.streamlit.app/",    # 👈 CAMBIA por tu URL real
+        "titulo": "Conoce sobre Waterpolo",
+        "desc": "Con esta herramienta puedes aprender lo que quieras de waterpolo",
+        "url": "https://chatpdfsav.streamlit.app",    # 👈 CAMBIA por tu URL real
         "badge": "vision",
         "emoji": "👁️"
     },
     {
-        "titulo": "Entrenando tus Modelos",
-        "desc": "Sube tu propio dataset, entrena un modelo personalizado y despliégalo al instante.",
-        "url": "https://xn3pg24ztuv6fdiqon8qn3.streamlit.app/",  # 👈 CAMBIA
+        "titulo": "Control por voz",
+        "desc": "Habla y observa la magia.",
+        "url": "https://ctrlvoicesav.streamlit.app",  # 👈 CAMBIA
         "badge": "vision",
         "emoji": "🧠"
     },
     {
-        "titulo": "Voz a Texto (Transcriptor)",
-        "desc": "Convierte grabaciones de audio o video en texto preciso usando Whisper de OpenAI.",
-        "url": "https://traductorw.streamlit.app/",   # 👈 CAMBIA
+        "titulo": "Tablero inteligente",
+        "desc": "Dibuja y analiza tu imagen.",
+        "url": "https://drawrecogsav.streamlit.app",   # 👈 CAMBIA
         "badge": "audio",
         "emoji": "🎙️"
     },
     {
-        "titulo": "Análisis de Datos con Agentes",
-        "desc": "Consulta y analiza tus datos en lenguaje natural usando agentes de IA con capacidad de razonamiento.",
-        "url": "https://dataagente.streamlit.app/",   # 👈 CAMBIA
+        "titulo": "Recocnocimiento de digitos escritos a mano",
+        "desc": "Dibuja tus digitos y deja que la palicación los identifique.",
+        "url": "https://handwsav.streamlit.app",   # 👈 CAMBIA
         "badge": "data",
         "emoji": "📊"
     },
     {
-        "titulo": "Transcriptor Audio & Video",
-        "desc": "Sube un archivo multimedia y obtén la transcripción completa en segundos, listo para exportar.",
-        "url": "https://transcript-whisper.streamlit.app/",  # 👈 CAMBIA
+        "titulo": "Mi primera APP",
+        "desc": "Explórala",
+        "url": "https://introsamu.streamlit.app",  # 👈 CAMBIA
         "badge": "audio",
         "emoji": "🎬"
-    },
+    }
     {
-        "titulo": "RAG — Chat con tus PDFs",
-        "desc": "Carga cualquier documento PDF y hazle preguntas en lenguaje natural. Generación aumentada por recuperación.",
-        "url": "https://chatpdf-cc.streamlit.app/",   # 👈 CAMBIA
+        "titulo": "APP de presentación",
+        "desc": "Mi pagina de presentación",
+        "url": "https://introsav.streamlit.app",   # 👈 CAMBIA
         "badge": "nlp",
         "emoji": "📄"
     },
     {
-        "titulo": "Análisis de Imágenes con GPT-4o",
-        "desc": "Describe, analiza y extrae información de cualquier imagen usando la visión multimodal de GPT-4o.",
-        "url": "https://vision2-gpt4o.streamlit.app/",  # 👈 CAMBIA
+        "titulo": "Reconocimiento óptico de caracteres",
+        "desc": "escucha los textos tus imagenes en tiempo real",
+        "url": "https://ocr-audiosav.streamlit.app",  # 👈 CAMBIA
         "badge": "vision",
         "emoji": "🖼️"
     },
     {
-        "titulo": "Sistema Ciberfísico",
-        "desc": "Integración de IA con el mundo físico: sensores, actuadores y control inteligente en tiempo real.",
-        "url": "https://vision2-gpt4o.streamlit.app/",  # 👈 CAMBIA por URL correcta
+        "titulo": "Reconocimiento óptico de caracteres 2",
+        "desc": "Reconoce tus fotos esde tu cámara",
+        "url": "https://ocrsav.streamlit.app",  # 👈 CAMBIA por URL correcta
         "badge": "iot",
         "emoji": "⚙️"
     },
