@@ -229,7 +229,7 @@ with st.sidebar:
 # ============================================================
 st.markdown("""
 <div class='hero-banner'>
-    <div class='hero-name'>Samuel Acevedo V. Aquí</div>  <!-- 👈 CAMBIA: tu nombre -->
+    <div class='hero-name'>Samuel Acevedo V.</div>  <!-- 👈 CAMBIA: tu nombre -->
     <div class='hero-role'>Estudiante de diseño intercativo · Universidad EAFIT</div>  <!-- 👈 CAMBIA: tu rol y universidad -->
     <div class='hero-desc'>
         PORTAFOLIO
@@ -317,6 +317,54 @@ apps = [
         "titulo": "Lector sensor MQTT",
         "desc": "MQTT",
         "url": "https://recepmqttshifu.streamlit.app",  # 👈 CAMBIA por URL correcta
+        "badge": "iot",
+        "emoji": "⚙️"
+    },
+
+    {
+        "titulo": "Analisis de sentimientos",
+        "desc": "Analiza tus sentimientos con un texto",
+        "url": "https://sentimentanuel.streamlit.app",  # 👈 CAMBIA por URL correcta
+        "badge": "iot",
+        "emoji": "⚙️"
+    },
+
+    {
+        "titulo": "Reconocimiento de imágenes",
+        "desc": "Reconoce si samu está o no en tus fotos",
+        "url": "https://tm95nvds.streamlit.app",  # 👈 CAMBIA por URL correcta
+        "badge": "iot",
+        "emoji": "⚙️"
+    },
+
+    {
+        "titulo": "Traductor",
+        "desc": "Escucho lo que quieres traducir.",
+        "url": "https://visionappsav.streamlit.app",  # 👈 CAMBIA por URL correcta
+        "badge": "iot",
+        "emoji": "⚙️"
+    },
+
+    {
+        "titulo": "WordCloud Studio",
+        "desc": "Haz tus nubes de palabras",
+        "url": "https://wordcloudsav.streamlit.app",  # 👈 CAMBIA por URL correcta
+        "badge": "iot",
+        "emoji": "⚙️"
+    },
+
+    {
+        "titulo": "Analisis de imagen",
+        "desc": "Clave KPI",
+        "url": "https://traductordim.streamlit.app",  # 👈 CAMBIA por URL correcta
+        "badge": "iot",
+        "emoji": "⚙️"
+    },
+
+    {
+        "titulo": "Detección de objetos",
+        "desc": "Detecta objetos en tus imágenes",
+        "url": "https://yolov5aa.streamlit.app",  # 👈 CAMBIA por URL correcta
         "badge": "iot",
         "emoji": "⚙️"
     },
