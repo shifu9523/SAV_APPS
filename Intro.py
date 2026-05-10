@@ -267,28 +267,28 @@ apps = [
         "titulo": "Control por voz",
         "desc": "Habla y observa la magia.",
         "url": "https://ctrlvoicesav.streamlit.app",  # 👈 CAMBIA
-        "badge": "vision",
+        "badge": "audio",
         "emoji": "🧠"
     },
     {
         "titulo": "Tablero inteligente",
         "desc": "Dibuja y analiza tu imagen.",
         "url": "https://drawrecogsav.streamlit.app",   # 👈 CAMBIA
-        "badge": "audio",
-        "emoji": "🎙️"
+        "badge": "vision",
+        "emoji": "👁️"
     },
     {
         "titulo": "Recocnocimiento de digitos escritos a mano",
         "desc": "Dibuja tus digitos y deja que la palicación los identifique.",
         "url": "https://handwsav.streamlit.app",   # 👈 CAMBIA
-        "badge": "data",
+        "badge": "vision",
         "emoji": "📊"
     },
     {
         "titulo": "Mi primera APP",
         "desc": "Explórala",
         "url": "https://introsamu.streamlit.app",  # 👈 CAMBIA
-        "badge": "audio",
+        "badge": "iot",
         "emoji": "🎬"
     },
     {
