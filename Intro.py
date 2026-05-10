@@ -307,8 +307,16 @@ apps = [
     },
     {
         "titulo": "Reconocimiento óptico de caracteres 2",
-        "desc": "Reconoce tus fotos esde tu cámara",
+        "desc": "Reconoce tus fotos desde tu cámara",
         "url": "https://ocrsav.streamlit.app",  # 👈 CAMBIA por URL correcta
+        "badge": "iot",
+        "emoji": "⚙️"
+    },
+
+    {
+        "titulo": "Lector sensor MQTT",
+        "desc": "MQTT",
+        "url": "https://recepmqttshifu.streamlit.app",  # 👈 CAMBIA por URL correcta
         "badge": "iot",
         "emoji": "⚙️"
     },
